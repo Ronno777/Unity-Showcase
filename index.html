@@ -5,36 +5,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Unity Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
   <link href="dist/output.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <nav class="bg-white shadow p-4 flex space-x-4 justify-center">
-    <a href="index.html" class="hover:underline">Home</a>
-    <a href="projects/project1.html" class="hover:underline">Project 1</a>
-    <a href="projects/project2.html" class="hover:underline">Project 2</a>
-    <a href="projects/project3.html" class="hover:underline">Project 3</a>
+<body class="font-sans bg-gradient-to-br from-blue-100 via-white to-purple-100 min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-white bg-opacity-80 backdrop-blur-md p-4 shadow-md">
+    <div class="container mx-auto flex justify-center space-x-8">
+      <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium">Home</a>
+      <a href="projects/project1.html" class="text-gray-700 hover:text-blue-500 font-medium">Space Explorer</a>
+      <a href="projects/project2.html" class="text-gray-700 hover:text-blue-500 font-medium">Puzzle Master</a>
+      <a href="projects/project3.html" class="text-gray-700 hover:text-blue-500 font-medium">Racing Rivals</a>
+    </div>
   </nav>
-  <main class="max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Welcome to My Unity Showcase</h1>
-    <p class="mb-8">Explore my three Unity WebGL projects below:</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-xl font-semibold mb-2">Project 1: Space Explorer</h2>
-        <p class="mb-4">Endless runner through procedurally generated galaxies.</p>
-        <a href="projects/project1.html" class="text-blue-600 hover:underline">View Space Explorer →</a>
+  <!-- Hero Section -->
+  <main class="flex-1 container mx-auto px-4 py-16 text-center">
+    <h1 class="text-5xl font-bold text-gray-900 mb-4">Welcome to My Unity Showcase</h1>
+    <p class="text-lg text-gray-600 mb-12">Explore my three Unity WebGL projects below</p>
+
+    <!-- Project Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Space Explorer</h2>
+        <p class="text-gray-600 mb-4">Endless runner through procedurally generated galaxies.</p>
+        <a href="projects/project1.html" class="inline-block mt-2 text-blue-600 hover:underline">View Project →</a>
       </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-xl font-semibold mb-2">Project 2: Puzzle Master</h2>
-        <p class="mb-4">Challenge your mind with dynamic logic puzzles.</p>
-        <a href="projects/project2.html" class="text-blue-600 hover:underline">View Puzzle Master →</a>
+      <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Puzzle Master</h2>
+        <p class="text-gray-600 mb-4">Challenge your mind with dynamic logic puzzles.</p>
+        <a href="projects/project2.html" class="inline-block mt-2 text-blue-600 hover:underline">View Project →</a>
       </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-xl font-semibold mb-2">Project 3: Racing Rivals</h2>
-        <p class="mb-4">High-speed racing with customizable vehicles.</p>
-        <a href="projects/project3.html" class="text-blue-600 hover:underline">View Racing Rivals →</a>
+      <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Racing Rivals</h2>
+        <p class="text-gray-600 mb-4">High-speed racing with customizable vehicles.</p>
+        <a href="projects/project3.html" class="inline-block mt-2 text-blue-600 hover:underline">View Project →</a>
       </div>
     </div>
   </main>
-</body>
-</html>
