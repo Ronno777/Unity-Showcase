@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Horizon</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-bg="images/bg1.jpg">
+  <header>
+    <h1>Split Horizon</h1>
+    <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+    <nav>
+      <a href="#project1">Overview</a>
+      <a href="project2.html">Next Project →</a>
+    </nav>
+  </header>
+  <main>
+    <section class="project-section" id="project1" data-bg="images/bg1.jpg">
+      <div class="screenshots">
+        <div class="screenshot" data-img="images/screenshot1a.png" data-desc="Dynamic Level Generation">
+          <img src="images/screenshot1a.png" alt="Dynamic Level Generation">
+          <div class="screenshot-caption">Dynamic Level Generation</div>
+        </div>
+        <!-- more screenshots… -->
+      </div>
+      <div class="project-content">
+        <p><strong>Description:</strong> Split Horizon is a high-speed, procedurally generated platform runner…</p>
+        <div class="iframe-container">
+          <iframe src="https://ronno777.github.io/Split-Horizon/"></iframe>
+        </div>
+        <button class="next-btn" onclick="goTo('project2')">Next →</button>
+      </div>
+    </section>
+  </main>
+  <footer>&copy; 2025 Ryan S.</footer>
+  <div id="modal"><div id="modal-content">
+    <button id="modal-close">×</button>
+    <img src="" alt=""><p></p>
+  </div></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

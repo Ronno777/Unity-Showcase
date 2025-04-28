@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Split Horizon</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body style="background-image:url('images/bg1.jpg');">
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modal-content">
+      <button id="modal-close">×</button>
+      <img src="" alt="">
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <!-- Header & nav -->
+  <header>
+    <h1>Split Horizon</h1>
+    <nav>
+      <a href="#project1">Overview</a>
+      <a href="project2.html">Next Project →</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-section" id="project1" data-bg="images/bg1.jpg">
+      <div class="screenshots">
+        <div class="screenshot" data-img="images/screenshot1a.png" data-desc="Dynamic Level Generation…">
+          <img src="images/screenshot1a.png" alt="Dynamic Level Generation">
+        </div>
+        <div class="screenshot" data-img="images/screenshot1b.png" data-desc="Gravity Flip Mechanic…">
+          <img src="images/screenshot1b.png" alt="Gravity Flip">
+        </div>
+        <div class="screenshot" data-img="images/screenshot1c.png" data-desc="Physics-Based Destruction…">
+          <img src="images/screenshot1c.png" alt="Physics Destruction">
+        </div>
+      </div>
+      <div class="project-content">
+        <p><strong>Description:</strong> Split Horizon is a high-speed…</p>
+        <div class="iframe-container">
+          <iframe src="https://ronno777.github.io/Split-Horizon/"></iframe>
+        </div>
+        <button class="next-btn" onclick="goTo('project2')">Next →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 Ryan S.</footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
