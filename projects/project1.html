@@ -5,41 +5,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Space Explorer - Unity Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="../dist/output.css" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .fade-in { animation: fadeIn 1s ease-in both; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <nav class="bg-white shadow p-4 flex space-x-4 justify-center">
-    <a href="../index.html" class="hover:underline">Home</a>
-    <a href="project1.html" class="font-bold underline">Space Explorer</a>
-    <a href="project2.html" class="hover:underline">Project 2</a>
-    <a href="project3.html" class="hover:underline">Project 3</a>
+<body class="bg-gradient-to-br from-indigo-50 via-white to-purple-100 min-h-screen flex flex-col">
+  <nav class="bg-white/70 backdrop-blur-md py-4 shadow-md">
+    <div class="container mx-auto flex justify-center gap-8">
+      <a href="../index.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Home</a>
+      <a href="project1.html" class="text-indigo-600 font-semibold underline">Space Explorer</a>
+      <a href="project2.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Puzzle Master</a>
+      <a href="project3.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Racing Rivals</a>
+    </div>
   </nav>
-  <main class="max-w-4xl mx-auto p-6">
-    <h1 class="text-2xl font-bold mb-2">Space Explorer</h1>
-    <p class="mb-4">Pilot your spaceship through procedurally generated galaxies in this endless runner.</p>
 
-    <div class="w-full h-64 mb-4">
-      <iframe src="https://via.placeholder.com/800x400?text=WebGL+Embed"
-              class="w-full h-full border"
-              allowfullscreen></iframe>
+  <main class="flex-1 container mx-auto px-6 py-12 fade-in">
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">Space Explorer</h1>
+      <p class="text-gray-600">Pilot your ship through infinite procedurally generated galaxies!</p>
     </div>
 
-    <ul class="list-disc list-inside mb-4">
-      <li>Procedural galaxy generation</li>
-      <li>Smooth ship controls for desktop & mobile</li>
-      <li>Dynamic starfield shader</li>
-    </ul>
+    <div class="mx-auto w-full md:w-3/4 h-64 mb-10 border rounded-xl overflow-hidden shadow-lg">
+      <iframe src="https://via.placeholder.com/800x400?text=WebGL+Embed" class="w-full h-full" allowfullscreen></iframe>
+    </div>
 
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <img src="https://via.placeholder.com/400x300?text=Main+Menu+UI" alt="Main Menu UI" class="rounded shadow" />
-        <p class="text-sm mt-1">Main menu UI with start button.</p>
+    <div class="max-w-2xl mx-auto mb-10">
+      <ul class="list-disc list-inside text-left text-gray-700 space-y-2">
+        <li>Procedural galaxy generation</li>
+        <li>Desktop and mobile ship controls</li>
+        <li>Dynamic starfield background shader</li>
+      </ul>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-white/90 rounded-lg shadow-md p-4">
+        <img src="https://via.placeholder.com/400x300?text=Main+Menu" alt="Main Menu" class="rounded-md mb-2" />
+        <p class="text-sm text-gray-600">Sleek main menu UI ready to start your journey.</p>
       </div>
-      <div>
-        <img src="https://via.placeholder.com/400x300?text=In-Game+View" alt="In-Game View" class="rounded shadow" />
-        <p class="text-sm mt-1">In-game view showing the spaceship navigating asteroids.</p>
+      <div class="bg-white/90 rounded-lg shadow-md p-4">
+        <img src="https://via.placeholder.com/400x300?text=Gameplay+View" alt="Gameplay View" class="rounded-md mb-2" />
+        <p class="text-sm text-gray-600">Gameplay showcasing asteroid fields and starships.</p>
       </div>
     </div>
   </main>
+
+  <footer class="bg-white/70 backdrop-blur-md py-4 text-center text-sm text-gray-500">
+    ← <a href="../index.html" class="text-indigo-500 hover:underline">Back to Home</a>
+  </footer>
 </body>
 </html>
