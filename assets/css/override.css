@@ -1,0 +1,54 @@
+/* 1) Enable scroll-snap section alignment */
+main, #main { scroll-snap-type: y mandatory; }
+.project-section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  padding: 4em 2em;
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* Reveal on .visible */
+.project-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2) Screenshot grid + hover zoom */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.screenshot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.screenshot img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+.screenshot:hover img {
+  transform: scale(1.05);
+}
+
+/* 3) Lightbox modal defaults */
+#modal { display: none; }
+#modal.flex { display: flex; }
+
+/* 4) Next button styling (complement main.css) */
+.next-btn {
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.next-btn:hover {
+  transform: translateY(-2px);
+}

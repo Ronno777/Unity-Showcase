@@ -1,130 +1,126 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Portfolio</title>
-  <!-- TailwindCSS via CDN with class-based dark mode -->
-  <script>
-    tailwind.config = { darkMode: 'class' }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body class="h-full bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Unity Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Massively core CSS -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Your custom overrides -->
+    <link rel="stylesheet" href="assets/css/override.css" />
+  </head>
+  <body>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 bg-white bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md shadow z-20">
-    <div class="container mx-auto flex justify-between items-center px-6 py-4">
-      <h1 class="text-2xl font-bold">Unity Portfolio</h1>
-      <div class="flex items-center space-x-4">
-        <button id="theme-toggle" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-          🌙
-        </button>
-        <nav class="space-x-3">
-          <a href="#project1" class="hover:underline">Project 1</a>
-          <a href="#project2" class="hover:underline">Project 2</a>
-          <a href="#project3" class="hover:underline">Project 3</a>
+    <!-- LIGHTBOX MODAL -->
+    <div id="modal" class="hidden">
+      <div id="modal-content">
+        <button id="modal-close">×</button>
+        <img src="" alt="" />
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+
+    <div id="wrapper">
+
+      <!-- HEADER -->
+      <header id="header">
+        <div class="inner">
+          <h1>Unity Portfolio</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#project1">Split Horizon</a></li>
+            <li><a href="#project2">Hero Born Custom</a></li>
+            <li><a href="#project3">Terrible Tweeters</a></li>
+          </ul>
         </nav>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <div id="main">
+
+        <!-- PROJECT 1 -->
+        <section id="project1" class="wrapper spotlight project-section" data-bg="assets/images/bg1.jpg">
+          <div class="inner">
+            <h2 class="major">Split Horizon</h2>
+
+            <div class="screenshots">
+              <div class="screenshot" data-img="assets/images/split-horizon_1.png" data-desc="Dynamic Level Generation…">
+                <img src="assets/images/split-horizon_1.png" alt="Dynamic Level Generation" />
+              </div>
+              <div class="screenshot" data-img="assets/images/split-horizon_7.png" data-desc="Gravity Flip Mechanic…">
+                <img src="assets/images/split-horizon_7.png" alt="Gravity Flip Mechanic" />
+              </div>
+              <div class="screenshot" data-img="assets/images/split-horizon_4.png" data-desc="Physics-Based Destruction…">
+                <img src="assets/images/split-horizon_4.png" alt="Physics-Based Destruction" />
+              </div>
+            </div>
+
+            <p>Split Horizon is a high-speed, procedurally generated platform runner inspired by Brackeys’ Cubeathon, but significantly expanded with custom gameplay systems, visual effects, and optimization tools.</p>
+
+            <div class="iframe-container">
+              <iframe src="https://ronno777.github.io/Split-Horizon/" title="Split Horizon WebGL"></iframe>
+            </div>
+
+            <button class="next-btn" onclick="goTo('project2')">Next →</button>
+          </div>
+        </section>
+
+        <!-- PROJECT 2 -->
+        <section id="project2" class="wrapper spotlight project-section" data-bg="assets/images/bg2.jpg">
+          <div class="inner">
+            <h2 class="major">Hero Born Custom</h2>
+
+            <div class="screenshots">
+              <div class="screenshot" data-img="assets/images/screenshot2a.png" data-desc="Addressables Loading…">
+                <img src="assets/images/screenshot2a.png" alt="Addressables Loading" />
+              </div>
+              <div class="screenshot" data-img="assets/images/screenshot2b.png" data-desc="Optimized Spawning…">
+                <img src="assets/images/screenshot2b.png" alt="Optimized Spawning" />
+              </div>
+            </div>
+
+            <p>Implemented asynchronous asset loading with Addressables…</p>
+
+            <div class="iframe-container">
+              <iframe src="https://ronno777.github.io/Hero-Born-Custom/" title="Hero Born Custom WebGL"></iframe>
+            </div>
+
+            <button class="next-btn" onclick="goTo('project3')">Next →</button>
+          </div>
+        </section>
+
+        <!-- PROJECT 3 -->
+        <section id="project3" class="wrapper spotlight project-section" data-bg="assets/images/bg3.jpg">
+          <div class="inner">
+            <h2 class="major">Terrible Tweeters</h2>
+
+            <div class="screenshots">
+              <div class="screenshot" data-img="assets/images/screenshot3a.png" data-desc="AI Pathfinding…">
+                <img src="assets/images/screenshot3a.png" alt="AI Pathfinding" />
+              </div>
+              <div class="screenshot" data-img="assets/images/screenshot3b.png" data-desc="Cost Modifiers…">
+                <img src="assets/images/screenshot3b.png" alt="Cost Modifiers" />
+              </div>
+            </div>
+
+            <p>Leveraged Unity’s NavMesh system for real-time AI pathfinding…</p>
+          </div>
+        </section>
+
       </div>
+
+      <!-- FOOTER -->
+      <footer id="footer">
+        <div class="inner">
+          <p>&copy; 2025 Ryan S.</p>
+        </div>
+      </footer>
+
     </div>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="overflow-x-hidden">
-
-    <!-- PROJECT 1 -->
-    <section id="project1" class="project-section" data-bg="url('images/bg1.jpg')">
-      <div class="container mx-auto px-6 py-16 flex flex-col items-center justify-center min-h-screen">
-        <div class="w-full max-w-3xl bg-white bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md rounded-lg p-8 shadow-lg transform opacity-0 translate-y-6 transition-all duration-700">
-          <h2 class="text-3xl font-semibold mb-6 text-center">Split Horizon</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 screenshots">
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot1a.png" data-desc="Dynamic Level Generation: custom generator instantiates obstacle types based on player position.">
-              <img src="images/screenshot1a.png" alt="Dynamic Level Generation" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">Dynamic Level Generation</div>
-            </div>
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot1b.png" data-desc="Gravity Flip Mechanic: toggles gravity via Rigidbody manipulation.">
-              <img src="images/screenshot1b.png" alt="Gravity Flip Mechanic" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">Gravity Flip Mechanic</div>
-            </div>
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot1c.png" data-desc="Physics-Based Destruction: collision-triggered debris with particle systems.">
-              <img src="images/screenshot1c.png" alt="Physics-Based Destruction" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">Physics-Based Destruction</div>
-            </div>
-          </div>
-          <p class="mb-6"><strong>Description:</strong> Split Horizon is a high-speed, procedurally generated platform runner...</p>
-          <div class="w-full h-96 mb-6">
-            <iframe src="https://ronno777.github.io/Split-Horizon/" class="w-full h-full rounded-lg shadow-lg"></iframe>
-          </div>
-          <div class="text-center">
-            <button class="next-btn px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" onclick="goTo('project2')">Next →</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECT 2 -->
-    <section id="project2" class="project-section" data-bg="url('images/bg2.jpg')">
-      <div class="container mx-auto px-6 py-16 flex flex-col items-center justify-center min-h-screen">
-        <div class="w-full max-w-3xl bg-white bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md rounded-lg p-8 shadow-lg transform opacity-0 translate-y-6 transition-all duration-700">
-          <h2 class="text-3xl font-semibold mb-6 text-center">Hero Born Custom</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 screenshots">
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot2a.png" data-desc="Addressables Loading: async asset loading reduces memory footprint.">
-              <img src="images/screenshot2a.png" alt="Addressables Loading" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">Addressables Loading</div>
-            </div>
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot2b.png" data-desc="Optimized Spawning: object pooling for efficient entity management.">
-              <img src="images/screenshot2b.png" alt="Optimized Spawning" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">Optimized Spawning</div>
-            </div>
-          </div>
-          <p class="mb-6"><strong>Description:</strong> Implemented asynchronous asset loading with Addressables...</p>
-          <div class="w-full h-96 mb-6">
-            <iframe src="https://ronno777.github.io/Hero-Born-Custom/" class="w-full h-full rounded-lg shadow-lg"></iframe>
-          </div>
-          <div class="text-center">
-            <button class="next-btn px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" onclick="goTo('project3')">Next →</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECT 3 -->
-    <section id="project3" class="project-section" data-bg="url('images/bg3.jpg')">
-      <div class="container mx-auto px-6 py-16 flex flex-col items-center justify-center min-h-screen">
-        <div class="w-full max-w-3xl bg-white bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md rounded-lg p-8 shadow-lg transform opacity-0 translate-y-6 transition-all duration-700">
-          <h2 class="text-3xl font-semibold mb-6 text-center">Terrible Tweeters</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 screenshots">
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot3a.png" data-desc="AI Pathfinding: NavMesh agents with dynamic cost modifiers.">
-              <img src="images/screenshot3a.png" alt="AI Pathfinding" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">AI Pathfinding</div>
-            </div>
-            <div class="screenshot relative cursor-pointer" data-img="images/screenshot3b.png" data-desc="Custom Cost Modifiers: runtime obstacle avoidance tweaks.">
-              <img src="images/screenshot3b.png" alt="Cost Modifiers" class="w-full rounded-lg">
-              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">Cost Modifiers</div>
-            </div>
-          </div>
-          <p class="mb-6"><strong>Description:</strong> Leveraged Unity’s NavMesh system for real-time AI pathfinding...</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="text-center py-6 bg-white bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md">
-    <p>&copy; 2025 Ryan S.</p>
-  </footer>
-
-  <!-- LIGHTBOX MODAL -->
-  <div id="modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-30">
-    <div id="modal-content" class="bg-white dark:bg-gray-800 p-4 rounded-lg max-w-xl w-full relative">
-      <button id="modal-close" class="absolute top-2 right-2 text-xl">×</button>
-      <img id="modal-img" src="" alt="" class="w-full h-auto mb-4 rounded">
-      <p id="modal-desc" class="text-gray-800 dark:text-gray-200"></p>
-    </div>
-  </div>
-
-  <script src="js/scripts.js"></script>
-</body>
+    <!-- SCRIPTS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/override.js"></script>
+  </body>
 </html>
