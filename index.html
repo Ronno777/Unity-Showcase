@@ -13,9 +13,25 @@
       to { opacity: 1; transform: none; }
       from { opacity: 0; transform: translateY(20px); }
     }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      filter: blur(70px);
+      animation: moveBlob 20s infinite alternate;
+    }
+    @keyframes moveBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, -100px) scale(1.2); }
+      100% { transform: translate(-50px, 100px) scale(1); }
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-pink-100 text-gray-800">
+
+  <!-- Blobs Background -->
+  <div class="blob bg-indigo-300 w-96 h-96 top-0 left-0"></div>
+  <div class="blob bg-pink-300 w-80 h-80 bottom-0 right-0"></div>
 
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
@@ -28,21 +44,25 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex flex-col justify-center items-center text-center px-6">
+  <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative z-10">
     <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">Welcome to My Unity Showcase</h1>
     <p class="text-lg md:text-xl text-gray-600 mb-8 fade-in" style="animation-delay: .3s;">Explore projects built with creativity and precision.</p>
     <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-full text-lg font-semibold transition fade-in" style="animation-delay: .5s;">View Projects</a>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="bg-gray-50 py-20">
+  <section id="projects" class="bg-gray-50 py-20 relative z-10">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-12 fade-in">Featured Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         
         <!-- Project Card 1 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition fade-in">
-          <img src="https://via.placeholder.com/600x400?text=Project+1" alt="Project 1" class="w-full h-48 object-cover">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:bg-indigo-50 transition duration-300 fade-in">
+          <div class="overflow-hidden rounded-t-xl">
+            <img src="assets/images/space-explorer-thumbnail.png" 
+                 alt="Space Explorer" 
+                 class="w-full h-48 object-cover transform transition duration-300 hover:scale-105" />
+          </div>
           <div class="p-6">
             <h3 class="text-2xl font-semibold mb-2">Space Explorer</h3>
             <p class="text-gray-600 mb-4">An endless runner through procedurally generated galaxies.</p>
@@ -51,8 +71,12 @@
         </div>
 
         <!-- Project Card 2 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition fade-in" style="animation-delay: .2s;">
-          <img src="https://via.placeholder.com/600x400?text=Project+2" alt="Project 2" class="w-full h-48 object-cover">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:bg-indigo-50 transition duration-300 fade-in" style="animation-delay: .2s;">
+          <div class="overflow-hidden rounded-t-xl">
+            <img src="assets/images/puzzle-master-thumbnail.png" 
+                 alt="Puzzle Master" 
+                 class="w-full h-48 object-cover transform transition duration-300 hover:scale-105" />
+          </div>
           <div class="p-6">
             <h3 class="text-2xl font-semibold mb-2">Puzzle Master</h3>
             <p class="text-gray-600 mb-4">Challenge your mind with dynamic logic puzzles and obstacles.</p>
@@ -61,8 +85,12 @@
         </div>
 
         <!-- Project Card 3 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition fade-in" style="animation-delay: .4s;">
-          <img src="https://via.placeholder.com/600x400?text=Project+3" alt="Project 3" class="w-full h-48 object-cover">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:bg-indigo-50 transition duration-300 fade-in" style="animation-delay: .4s;">
+          <div class="overflow-hidden rounded-t-xl">
+            <img src="assets/images/racing-rivals-thumbnail.png" 
+                 alt="Racing Rivals" 
+                 class="w-full h-48 object-cover transform transition duration-300 hover:scale-105" />
+          </div>
           <div class="p-6">
             <h3 class="text-2xl font-semibold mb-2">Racing Rivals</h3>
             <p class="text-gray-600 mb-4">Customize your car and race rivals in dynamic city environments.</p>
@@ -75,7 +103,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white text-center text-gray-500 py-8 text-sm">
+  <footer class="bg-white text-center text-gray-500 py-8 text-sm relative z-10">
     © 2025 MyPortfolio. All rights reserved.
   </footer>
 
