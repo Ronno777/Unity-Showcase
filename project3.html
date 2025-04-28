@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Terrible Tweeters – My Unity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Ryan's Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="project1.html">Split Horizon</a></li>
+        <li><a href="project2.html">Hero Born Custom</a></li>
+        <li><a href="project3.html">Terrible Tweeters</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project">
+      <h1>Terrible Tweeters</h1>
+      <p><a href="https://github.com/Ronno777/Terrible-Tweeters" target="_blank">View on GitHub</a></p>
+      <p class="description">Terrible Tweeters is a 2D physics-based puzzle game inspired by Angry Birds, recreated from Jason Weimann’s Unity tutorial. Players launch birds to topple structures and defeat enemies using a drag-and-release slingshot mechanic, with destructible environments and satisfying physics interactions.</p>
+      <div class="webgl-container">
+        <iframe src="https://ronno777.github.io/Terrible-Tweeters/" allowfullscreen></iframe>
+      </div>
+      <p class="description">This custom iteration builds upon the original project by adding refined mechanics and a full game loop. The game now features custom art and sound effects and new handcrafted levels and a title screen and a custom win screen with "Thanks for Playing" message and restart options.</p>
+      <ul class="features">
+        <li>Slingshot launching system using mouse input and Rigidbody2D physics</li>
+        <li>Projectile trajectory prediction with line renderers</li>
+        <li>Destructible structures built from stacked colliders</li>
+        <li>Enemy knockout mechanics through collision or destabilization</li>
+        <li>Level reset and retry logic with basic win conditions</li>
+
+      </ul>
+      <div class="screenshots">
+        <figure>
+          <img src="img/terrible-tweeters_3.png" alt="Terrible Tweeters screenshot 1">
+          <figcaption></figcaption>
+        </figure>
+        <figure>
+          <img src="img/terrible-tweeters_1.png" alt="Terrible Tweeters screenshot 2">
+          <figcaption></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Ryan Smith</p>
+  </footer>
+</body>
+</html>

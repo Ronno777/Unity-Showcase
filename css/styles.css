@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #5A67D8;
+    --text-color: #333;
+    --bg-color: #f9f9f9;
+    --font: 'Roboto', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    color: var(--text-color);
+    background: var(--bg-color);
+    line-height: 1.6;
+  }
+  header {
+    background: var(--primary-color);
+    padding: 1rem 0;
+  }
+  .navbar {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  .nav-links li + li { margin-left: 1rem; }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 0.8; }
+  main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  .hero, .project { margin-bottom: 2rem; }
+  .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  .project h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .description { margin-bottom: 1rem; }
+  .webgl-container {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ddd;
+    margin-bottom: 1.5rem;
+  }
+  .webgl-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .features {
+    list-style: disc inside;
+    margin-bottom: 1.5rem;
+  }
+  .screenshots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .screenshots figure {
+    flex: 1 1 calc(50% - 1rem);
+  }
+  .screenshots img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+  }
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .footer {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid #e0e0e0;
+  }
+     /* Dark theme */
+    [data-theme="dark"] {
+    --primary-color: #4C51BF;
+    --text-color: #EEE;
+    --bg-color: #222;
+    --nav-bg: #2D3748;
+  }
+  /* Toggle button */
+  .theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    margin-left: 1rem;
+  }
+  /* Lightbox overlay */
+  #lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    cursor: default;
+  }
+  #lightbox.close {
+    cursor: pointer;
+  }
+  
+  

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Split Horizon – My Unity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Ryan's Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="project1.html">Split Horizon</a></li>
+        <li><a href="project2.html">Hero Born Custom</a></li>
+        <li><a href="project3.html">Terrible Tweeters</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project">
+      <h1>Split Horizon</h1>
+      <p><a href="https://github.com/Ronno777/Split-Horizon" target="_blank">View on GitHub</a></p>
+      <p class="description">Split Horizon is a fast-paced, procedurally generated platform runner that builds on Brackeys’ Cubeathon with expanded mechanics, custom visual effects, and new gameplay systems.</p>
+      <div class="webgl-container">
+        <iframe src="https://ronno777.github.io/Split-Horizon/" allowfullscreen></iframe>
+      </div>
+      <p class="description">The Cubeathon tutorial project functions as a basic endless runner where players guide a moving cube through static and dynamic obstacles while the cube moves forward automatically. The project demonstrates fundamental Unity skills through player movement and obstacle spawning and collision detection and scoring and camera following mechanics.</p>
+      <p class="description">Split Horizon expands upon the original by including the follwing features:</p>
+      <ul class="features">
+        <li>Procedural level generation system</li>
+        <li>Optimized dynamic obstacle spawning</li>
+        <li>Gravity flipping player mechanic</li>
+        <li>Physics-based destruction on collision</li>
+        <li>Custom scene fade transition system</li>
+        <li>Dynamic score tracking and display</li>
+        <li>Pause menu with volume controls</li>
+        <li>Post-processing visual effects stack</li>
+        <li>Cheat codes</li>
+
+      </ul>
+      <div class="screenshots">
+        <figure>
+          <img src="img/split-horizon_7.png" alt="Screenshot 1">
+          <figcaption>Gravity Flip Mechanic: The player-controlled gravity inversion was achieved through direct manipulation of Rigidbody physics and gravity vectors which dynamically adjusted collision behavior for floor and ceiling transitions.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/split-horizon_2.png" alt="Screenshot 2">
+          <figcaption>Dynamic Level Generation: Developed a custom DynamicLevelGenerator which instantiates five obstacle types and rare objects, using controlled randomization based on player position and ground bounds, to ensure a seamless progression while maintaining  a balance of challenge (Developed with assistance of AI).</figcaption>
+        </figure>
+        <figure>
+          <img src="img/split-horizon_1.png" alt="Screenshot 3">
+          <figcaption>Optimized Spawning: The generator only spawns objects slightly beyond the player’s visible range while a separate collection system (Despawner) removes objects behind the player to conserve memory and processing power.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/split-horizon_4.png" alt="Screenshot 4">
+          <figcaption>Physics-Based Destruction:  A custom physics destruction system was created for both the player and obstacles which is triggered via collision detection and integrates explosion forces and debris breakup on death.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/split-horizon_6.png" alt="Screenshot 5">
+          <figcaption>UI and Score System: A custom UI was implemented  for score display with dynamic updates during gameplay, as well as a pause menu featuring fully functional restart, quit, and volume slider controls for music and sound effects.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/split-horizon_5.png" alt="Screenshot 6">
+          <figcaption>Scene and Gameplay Management: 15 increasingly difficult stages were designed using procedural complexity scaling and rare event probabilities to maintain a steady gameplay curve and stable frame rates with object pooling where necessary.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Ryan Smith</p>
+  </footer>
+</body>
+</html>

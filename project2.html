@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Hero Born Custom – My Unity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Ryan's Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="project1.html">Split Horizon</a></li>
+        <li><a href="project2.html">Hero Born Custom</a></li>
+        <li><a href="project3.html">Terrible Tweeters</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project">
+      <h1>Hero Born Custom</h1>
+      <p><a href="https://github.com/Ronno777/Hero-Born-Custom" target="_blank">View on GitHub</a></p>
+      <p class="description">Hero Born Custom operates as a third-person action-adventure title which requires players to gather coins for victory while fighting enemies through projectile-based combat. The game expands upon the original Hero Born project through its custom art and destructible enemies and dynamic minimap and advanced camera controls and post-processing effects.</p>
+      <div class="webgl-container">
+        <iframe src="https://ronno777.github.io/Hero-Born-Custom/" allowfullscreen></iframe>
+      </div>
+      <p class="description">The original Hero Born project, based on Learning C# by Developing Games with Unity, introduces fundamental gameplay systems including basic player movement, a third-person camera, projectile shooting mechanics, simple enemy AI using NavMesh patrols, item pickups, health tracking, and scene management.</p>
+      <p class="description">Hero Born "Custom" expands upon the original by including the follwing features:</p>
+      <ul class="features">
+        <li>Custom enemy models</li>
+        <li>Minimap with render texture system</li>
+        <li>Advanced camera controls with rotation and zoom</li>
+        <li>Custom item pickups granting special abilities</li>
+        <li>Post-processing visual effects</li>
+        <li>Dynamic enemy destruction on hit</li>
+        <li>Projectile-based shooting system improvements</li>
+        <li>Pause menu with restart, quit, and volume controls</li>
+        <li>Background music and sound effect integration</li>
+        <li>Win condition based on coin collection</li>
+
+      </ul>
+      <div class="screenshots">
+        <figure>
+          <img src="img/hero-born_2.png" alt="Hero Born Custom screenshot 1">
+          <figcaption>Custom Item Pickups with Special Abilities: The standard item pickup system received an extension through power-up items which provide temporary special abilities such as speed boosts shield activations and enhanced jump capabilities to enhance gameplay strategy.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/hero-born_5.png" alt="Hero Born Custom screenshot 2">
+          <figcaption>Dynamic Enemy Destruction System: Uses modular enemy damage logic to remove particular model components when projectiles strike enemies. The system used collision detection with distinct destructible mesh components to deliver responsive visual feedback which improved combat engagement.</figcaption>
+        </figure>
+        <figure>
+            <img src="img/hero-born_1.png" alt="Hero Born Custom screenshot 1">
+            <figcaption>Minimap system: Implementation involved creating a real-time minimap system through Unity’s secondary camera and render texture functionality. The minimap tracks player and enemy positions in real time while operating independently from the main camera to enhance navigation without main gameplay view clutter.</figcaption>
+        </figure>
+        <figure>
+            <img src="img/hero-born_3.png" alt="Hero Born Custom screenshot 2">
+            <figcaption>Custom Third-Person Camera Controls: A third-person camera system was developed which included full 360° orbiting around the player, adjustable zoom levels, and smooth vertical tilt. The camera allows players to freely control their view of the environment while maintaining consistent framing of the player character, improving spatial awareness and gameplay flow.</figcaption>
+          </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Ryan Smith</p>
+  </footer>
+</body>
+</html>
