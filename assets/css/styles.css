@@ -1,0 +1,17 @@
+/* Override and custom styles for project sections */
+.project-section {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Fade-in & slide-up helpers (using Tailwind utility classes in HTML) */
+  
+  /* Lightbox modal */
+  #modal.hidden {
+    display: none;
+  }
+  #modal.flex {
+    display: flex;
+  }
+  
+  /* Next button (Tailwind handles most styles) */  
