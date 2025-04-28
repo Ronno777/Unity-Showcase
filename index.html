@@ -33,89 +33,100 @@
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
     }
-    /* Scroll progress bar */
+    /* Scroll snapping container */
+    main.scroll-container {
+      scroll-snap-type: y mandatory;
+    }
+    .project-section {
+      scroll-snap-align: start;
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--shadow);
+      margin: 40px auto;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+      max-width: 800px;
+    }
+    .project-section.visible { opacity: 1; transform: translateY(0); }
+    .project-section:hover { box-shadow: 0 6px 18px var(--shadow); }
+    /* Progress bar */
     #progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 4px;
-      background: var(--accent);
-      z-index: 1001;
+      position: fixed; top: 0; left: 0;
+      width: 0; height: 4px;
+      background: var(--accent); z-index: 1001;
     }
     header {
-      position: sticky;
-      top: 0;
+      position: sticky; top: 0;
       background-color: var(--header-bg);
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      z-index: 1000;
+      color: #fff; padding: 40px 20px;
+      text-align: center; z-index: 1000;
       box-shadow: 0 2px 5px var(--shadow);
     }
     header h1 { margin: 0; font-size: 2.5rem; }
     header .author { margin: 5px 0; font-size: 1rem; opacity: 0.8; }
     header p { margin: 10px 0; font-size: 1rem; opacity: 0.8; }
-    /* Theme toggle button */
     .toggle-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: transform 0.3s;
+      position: absolute; top: 20px; right: 20px;
+      background: none; border: none; color: #fff;
+      font-size: 1.5rem; cursor: pointer; transition: transform 0.3s;
     }
     .toggle-btn:hover { transform: rotate(20deg); }
-    /* Navigation links */
     nav { margin-top: 15px; }
     nav a {
-      margin: 0 10px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
+      margin: 0 10px; color: #fff;
+      text-decoration: none; font-weight: 500;
       transition: color 0.3s;
     }
     nav a:hover { color: var(--accent); }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+      gap: 16px; margin: 20px 0;
     }
-    .project-section {
-      background: var(--card-bg);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px var(--shadow);
-      margin: 40px 0;
+    .screenshot {
+      background: var(--bg);
+      border-radius: 4px;
+      box-shadow: 0 2px 6px var(--shadow);
       overflow: hidden;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+      text-align: center;
+      transition: transform 0.3s;
     }
-    .project-section.visible { opacity: 1; transform: translateY(0); }
-    .project-section:hover { box-shadow: 0 6px 18px var(--shadow); }
+    .screenshot:hover { transform: translateY(-4px); }
+    .screenshot img { width: 100%; display: block; }
+    .screenshot p { margin: 8px; font-size: 0.9rem; color: var(--fg); }
     .project-header {
-      background-color: var(--accent);
-      color: #fff;
+      background-color: var(--accent); color: #fff;
       padding: 15px 20px;
     }
     .project-header h2 { margin: 0; font-size: 1.8rem; }
-    .screenshot-container { width: 100%; max-height: 450px; overflow: hidden; }
-    .screenshot-container img {
-      width: 100%;
-      display: block;
-      transition: transform 0.4s;
-    }
-    .screenshot-container:hover img { transform: scale(1.05); }
     .project-content { padding: 20px; }
     .project-content p { margin: 10px 0; }
-    .iframe-container { width: 100%; height: 500px; margin: 20px 0; border-radius: 8px; overflow: hidden; }
+    .iframe-container {
+      width: 100%; height: 500px;
+      border-radius: 8px; overflow: hidden;
+      margin-bottom: 20px;
+    }
     .iframe-container iframe { width: 100%; height: 100%; border: none; }
-    .project-content a { color: var(--accent); text-decoration: none; font-weight: bold; }
+    .project-content a {
+      color: var(--accent); text-decoration: none; font-weight: bold;
+    }
     .project-content a:hover { text-decoration: underline; }
-    footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: var(--fg); }
+    .next-btn {
+      position: absolute; right: 20px; bottom: 20px;
+      background: var(--accent); color: #fff;
+      border: none; padding: 10px 15px;
+      border-radius: 4px; cursor: pointer;
+      box-shadow: 0 2px 6px var(--shadow);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .next-btn:hover { background: darken(var(--accent),10%); transform: translateY(-2px); }
+    footer {
+      text-align: center; padding: 40px 20px;
+      font-size: 0.9rem; color: var(--fg);
+    }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
   </style>
@@ -129,53 +140,66 @@
     <p>Scroll down to explore each Unity project showcase.</p>
     <nav>
       <a href="#project1">Split Horizon</a>
-      <a href="#project2">Hero Born "Custom"</a>
+      <a href="#project2">Hero Born Custom</a>
       <a href="#project3">Terrible Tweeters</a>
     </nav>
   </header>
-  <div class="container">
+  <main class="scroll-container">
     <!-- Project 1 -->
     <section class="project-section" id="project1">
       <div class="project-header"><h2>Split Horizon</h2></div>
-      <div class="screenshot-container"><img src="path/to/screenshot1.png" alt="Split Horizon Screenshot"></div>
+      <div class="screenshots">
+        <!-- Screenshot cards -->
+        <div class="screenshot"><img src="path/to/screenshot1a.png" alt><p>Dynamic Level Generation</p></div>
+        <div class="screenshot"><img src="path/to/screenshot1b.png" alt><p>Gravity Flip Mechanic</p></div>
+        <div class="screenshot"><img src="path/to/screenshot1c.png" alt><p>Physics-Based Destruction</p></div>
+      </div>
       <div class="project-content">
-        <p><strong>Description:</strong> Used Unity's ScriptableObject pattern to manage dynamic level configurations via JSON-based data tables.</p>
+        <p><strong>Description:</strong> Split Horizon is a high-speed, procedurally generated platform runner inspired by Brackeys’ Cubeathon, expanded with custom gameplay systems and visual effects.</p>
         <div class="iframe-container"><iframe src="https://ronno777.github.io/Split-Horizon/" title="Split Horizon WebGL"></iframe></div>
         <p><a href="https://github.com/Ronno777/Split-Horizon" target="_blank">View GitHub Repository</a></p>
+        <button class="next-btn" onclick="document.getElementById('project2').scrollIntoView({ behavior: 'smooth' })">Next →</button>
       </div>
     </section>
     <!-- Project 2 -->
     <section class="project-section" id="project2">
-      <div class="project-header"><h2>Hero Born "Custom"</h2></div>
-      <div class="screenshot-container"><img src="path/to/screenshot2.png" alt="Hero Born Custom Screenshot"></div>
+      <div class="project-header"><h2>Hero Born Custom</h2></div>
+      <div class="screenshots">
+        <div class="screenshot"><img src="path/to/screenshot2a.png" alt><p>Addressables Loading</p></div>
+        <div class="screenshot"><img src="path/to/screenshot2b.png" alt><p>Optimized Spawning</p></div>
+      </div>
       <div class="project-content">
-        <p><strong>Description:</strong> Implemented asynchronous asset loading with Addressables to reduce memory footprint and speed up scene transitions.</p>
+        <p><strong>Description:</strong> Implemented asynchronous asset loading with Addressables to reduce memory footprint and improve transitions.</p>
         <div class="iframe-container"><iframe src="https://ronno777.github.io/Hero-Born-Custom/" title="Hero Born Custom WebGL"></iframe></div>
         <p><a href="https://github.com/Ronno777/Hero-Born-Custom" target="_blank">View GitHub Repository</a></p>
+        <button class="next-btn" onclick="document.getElementById('project3').scrollIntoView({ behavior: 'smooth' })">Next →</button>
       </div>
     </section>
     <!-- Project 3 -->
     <section class="project-section" id="project3">
       <div class="project-header"><h2>Terrible Tweeters</h2></div>
-      <div class="screenshot-container"><img src="path/to/screenshot3.png" alt="Terrible Tweeters Screenshot"></div>
+      <div class="screenshots">
+        <div class="screenshot"><img src="path/to/screenshot3a.png" alt><p>AI Pathfinding</p></div>
+        <div class="screenshot"><img src="path/to/screenshot3b.png" alt><p>Custom Cost Modifiers</p></div>
+      </div>
       <div class="project-content">
-        <p><strong>Description:</strong> Leveraged Unity's NavMesh system for real-time AI pathfinding, with custom cost modifiers for dynamic obstacle avoidance.</p>
+        <p><strong>Description:</strong> Leveraged Unity’s NavMesh system for real-time AI pathfinding with dynamic obstacle avoidance behaviors.</p>
         <div class="iframe-container"><iframe src="https://ronno777.github.io/Terrible-Tweeters/" title="Terrible Tweeters WebGL"></iframe></div>
         <p><a href="https://github.com/Ronno777/Terrible-Tweeters" target="_blank">View GitHub Repository</a></p>
       </div>
     </section>
-  </div>
+  </main>
   <footer>&copy; 2025 Ryan S. &nbsp; <a href="https://github.com/yourusername/Unity-Showcase" target="_blank">Source on GitHub</a></footer>
   <script>
     // Fade-in on scroll
     document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('.project-section');
-      const obs = new IntersectionObserver((entries, o) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); o.unobserve(e.target); }});
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
       }, { threshold: 0.15 });
-      sections.forEach(s => obs.observe(s));
+      sections.forEach(s => observer.observe(s));
     });
-    // Scroll progress
+    // Scroll progress bar
     window.addEventListener('scroll', () => {
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
       document.getElementById('progress').style.width = `${(scrollTop / (scrollHeight - clientHeight)) * 100}%`;
@@ -184,18 +208,13 @@
     const btn = document.getElementById('theme-toggle');
     btn.addEventListener('click', () => {
       const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'light' ? 'dark' : 'light';
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       html.setAttribute('data-theme', next);
       btn.textContent = next === 'light' ? '🌙' : '☀️';
       localStorage.setItem('theme', next);
     });
-    // Load stored theme
     const stored = localStorage.getItem('theme');
-    if (stored) {
-      document.documentElement.setAttribute('data-theme', stored);
-      document.getElementById('theme-toggle').textContent = stored === 'light' ? '🌙' : '☀️';
-    }
+    if (stored) { document.documentElement.setAttribute('data-theme', stored); btn.textContent = stored === 'light' ? '🌙' : '☀️'; }
   </script>
 </body>
 </html>
