@@ -1,56 +1,74 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Unity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>My Portfolio</title>
   <link href="dist/output.css" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .fade-in { animation: fadeIn 1s ease-in both; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-100 via-white to-pink-100 min-h-screen flex flex-col">
-  <nav class="bg-white/70 backdrop-blur-md py-4 shadow-md">
-    <div class="container mx-auto flex justify-center gap-8">
-      <a href="index.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Home</a>
-      <a href="projects/project1.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Space Explorer</a>
-      <a href="projects/project2.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Puzzle Master</a>
-      <a href="projects/project3.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Racing Rivals</a>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">My Portfolio</h1>
+      <div class="space-x-4">
+        <a href="#projects" class="text-gray-600 hover:text-gray-900">Projects</a>
+        <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+      </div>
     </div>
   </nav>
 
-  <main class="flex-1 container mx-auto px-6 py-20 text-center fade-in">
-    <h1 class="text-5xl font-bold text-gray-900 mb-4 leading-tight">Welcome to My Unity Showcase</h1>
-    <p class="text-lg text-gray-600 mb-12">A collection of WebGL projects made with passion and precision.</p>
+  <!-- Hero Section -->
+  <section class="text-center py-20">
+    <h2 class="text-4xl font-extrabold mb-4">Welcome to My Portfolio</h2>
+    <p class="text-lg text-gray-600 mb-6">Showcasing my latest projects and skills.</p>
+    <a href="#projects" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-700">View Projects</a>
+  </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-white/90 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
-        <h2 class="text-2xl font-semibold mb-2">Space Explorer</h2>
-        <p class="text-gray-600 mb-4">An endless runner through procedural galaxies.</p>
-        <a href="projects/project1.html" class="text-indigo-600 hover:underline">View Project →</a>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-7xl mx-auto px-4 py-16">
+    <h3 class="text-3xl font-bold mb-8 text-center">Projects</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project Card -->
+      <div class="bg-white rounded shadow hover:shadow-lg transition">
+        <img src="path-to-image.jpg" alt="Project Image" class="rounded-t">
+        <div class="p-4">
+          <h4 class="text-xl font-semibold mb-2">Project Title</h4>
+          <p class="text-gray-600 mb-4">Brief description of the project.</p>
+          <a href="#" class="text-indigo-600 hover:underline">Learn More</a>
+        </div>
       </div>
-      <div class="bg-white/90 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
-        <h2 class="text-2xl font-semibold mb-2">Puzzle Master</h2>
-        <p class="text-gray-600 mb-4">Dynamic logic puzzles for every level.</p>
-        <a href="projects/project2.html" class="text-indigo-600 hover:underline">View Project →</a>
-      </div>
-      <div class="bg-white/90 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
-        <h2 class="text-2xl font-semibold mb-2">Racing Rivals</h2>
-        <p class="text-gray-600 mb-4">Customize, race, and conquer the tracks.</p>
-        <a href="projects/project3.html" class="text-indigo-600 hover:underline">View Project →</a>
-      </div>
+      <!-- Repeat Project Cards as needed -->
     </div>
-  </main>
+  </section>
 
-  <footer class="bg-white/70 backdrop-blur-md py-4 text-center text-sm text-gray-500">
-    © 2025 My Unity Portfolio
+  <!-- Contact Section -->
+  <section id="contact" class="bg-white py-16">
+    <div class="max-w-2xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-8 text-center">Contact Me</h3>
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+        </div>
+        <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 text-center text-gray-600">
+    © 2025 My Portfolio. All rights reserved.
   </footer>
+
 </body>
 </html>
