@@ -5,49 +5,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Unity Portfolio</title>
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS -->
   <link href="dist/output.css" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .fade-in { animation: fadeIn 1s ease-in both; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="font-sans bg-gradient-to-br from-blue-100 via-white to-purple-100 min-h-screen flex flex-col">
-  <!-- Navigation -->
-  <nav class="bg-white bg-opacity-80 backdrop-blur-md p-4 shadow-md">
-    <div class="container mx-auto flex justify-center space-x-8">
-      <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium">Home</a>
-      <a href="projects/project1.html" class="text-gray-700 hover:text-blue-500 font-medium">Space Explorer</a>
-      <a href="projects/project2.html" class="text-gray-700 hover:text-blue-500 font-medium">Puzzle Master</a>
-      <a href="projects/project3.html" class="text-gray-700 hover:text-blue-500 font-medium">Racing Rivals</a>
+<body class="bg-gradient-to-br from-indigo-100 via-white to-pink-100 min-h-screen flex flex-col">
+  <nav class="bg-white/70 backdrop-blur-md py-4 shadow-md">
+    <div class="container mx-auto flex justify-center gap-8">
+      <a href="index.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Home</a>
+      <a href="projects/project1.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Space Explorer</a>
+      <a href="projects/project2.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Puzzle Master</a>
+      <a href="projects/project3.html" class="text-gray-700 font-semibold hover:text-indigo-500 transition">Racing Rivals</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <main class="flex-1 container mx-auto px-4 py-16 text-center">
-    <h1 class="text-5xl font-bold text-gray-900 mb-4">Welcome to My Unity Showcase</h1>
-    <p class="text-lg text-gray-600 mb-12">Explore my three Unity WebGL projects below</p>
+  <main class="flex-1 container mx-auto px-6 py-20 text-center fade-in">
+    <h1 class="text-5xl font-bold text-gray-900 mb-4 leading-tight">Welcome to My Unity Showcase</h1>
+    <p class="text-lg text-gray-600 mb-12">A collection of WebGL projects made with passion and precision.</p>
 
-    <!-- Project Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Space Explorer</h2>
-        <p class="text-gray-600 mb-4">Endless runner through procedurally generated galaxies.</p>
-        <a href="projects/project1.html" class="inline-block mt-2 text-blue-600 hover:underline">View Project →</a>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="bg-white/90 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+        <h2 class="text-2xl font-semibold mb-2">Space Explorer</h2>
+        <p class="text-gray-600 mb-4">An endless runner through procedural galaxies.</p>
+        <a href="projects/project1.html" class="text-indigo-600 hover:underline">View Project →</a>
       </div>
-      <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Puzzle Master</h2>
-        <p class="text-gray-600 mb-4">Challenge your mind with dynamic logic puzzles.</p>
-        <a href="projects/project2.html" class="inline-block mt-2 text-blue-600 hover:underline">View Project →</a>
+      <div class="bg-white/90 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+        <h2 class="text-2xl font-semibold mb-2">Puzzle Master</h2>
+        <p class="text-gray-600 mb-4">Dynamic logic puzzles for every level.</p>
+        <a href="projects/project2.html" class="text-indigo-600 hover:underline">View Project →</a>
       </div>
-      <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Racing Rivals</h2>
-        <p class="text-gray-600 mb-4">High-speed racing with customizable vehicles.</p>
-        <a href="projects/project3.html" class="inline-block mt-2 text-blue-600 hover:underline">View Project →</a>
+      <div class="bg-white/90 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+        <h2 class="text-2xl font-semibold mb-2">Racing Rivals</h2>
+        <p class="text-gray-600 mb-4">Customize, race, and conquer the tracks.</p>
+        <a href="projects/project3.html" class="text-indigo-600 hover:underline">View Project →</a>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white bg-opacity-80 backdrop-blur-md p-4 text-center text-gray-600">
+  <footer class="bg-white/70 backdrop-blur-md py-4 text-center text-sm text-gray-500">
     © 2025 My Unity Portfolio
   </footer>
 </body>
