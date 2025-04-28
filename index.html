@@ -1,197 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unity Portfolio</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <style>
+    /* Theme variables */
+    :root {
+      --bg: #f5f5f5;
+      --fg: #333;
+      --header-bg: #222;
+      --accent: #0066cc;
+      --card-bg: #fff;
+      --shadow: rgba(0,0,0,0.1);
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --fg: #ddd;
+      --header-bg: #1f1f1f;
+      --accent: #3399ff;
+      --card-bg: #1e1e1e;
+      --shadow: rgba(0,0,0,0.5);
+    }
     /* Base styles */
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      background-color: var(--bg);
+      color: var(--fg);
       line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    /* Scroll progress bar */
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background: var(--accent);
+      z-index: 1001;
     }
     header {
-      background-color: #222;
+      position: sticky;
+      top: 0;
+      background-color: var(--header-bg);
       color: #fff;
       padding: 40px 20px;
       text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px var(--shadow);
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header .author { margin: 5px 0; font-size: 1rem; opacity: 0.8; }
+    header p { margin: 10px 0; font-size: 1rem; opacity: 0.8; }
+    /* Theme toggle button */
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
-    header p {
-      margin: 10px 0 0;
-      font-size: 1rem;
-      opacity: 0.8;
+    .toggle-btn:hover { transform: rotate(20deg); }
+    /* Navigation links */
+    nav { margin-top: 15px; }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
+    nav a:hover { color: var(--accent); }
     .container {
       max-width: 800px;
       margin: auto;
       padding: 20px;
     }
     .project-section {
-      background: #fff;
+      background: var(--card-bg);
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px var(--shadow);
       margin: 40px 0;
       overflow: hidden;
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.5s ease-out;
+      transition: all 0.6s ease-out;
     }
-    .project-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .project-section.visible { opacity: 1; transform: translateY(0); }
+    .project-section:hover { box-shadow: 0 6px 18px var(--shadow); }
     .project-header {
-      background-color: #0066cc;
+      background-color: var(--accent);
       color: #fff;
       padding: 15px 20px;
     }
-    .project-header h2 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    .screenshot-container {
-      width: 100%;
-      max-height: 450px;
-      overflow: hidden;
-    }
+    .project-header h2 { margin: 0; font-size: 1.8rem; }
+    .screenshot-container { width: 100%; max-height: 450px; overflow: hidden; }
     .screenshot-container img {
       width: 100%;
       display: block;
+      transition: transform 0.4s;
     }
-    .project-content {
-      padding: 20px;
-    }
-    .project-content p {
-      margin: 10px 0;
-    }
-    .iframe-container {
-      width: 100%;
-      height: 500px;
-      margin: 20px 0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .iframe-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .project-content a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .project-content a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    footer a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    .screenshot-container:hover img { transform: scale(1.05); }
+    .project-content { padding: 20px; }
+    .project-content p { margin: 10px 0; }
+    .iframe-container { width: 100%; height: 500px; margin: 20px 0; border-radius: 8px; overflow: hidden; }
+    .iframe-container iframe { width: 100%; height: 100%; border: none; }
+    .project-content a { color: var(--accent); text-decoration: none; font-weight: bold; }
+    .project-content a:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: var(--fg); }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-
+  <div id="progress"></div>
   <header>
     <h1>Unity Portfolio</h1>
+    <button class="toggle-btn" id="theme-toggle">🌙</button>
     <p class="author">Ryan S</p>
     <p>Scroll down to explore each Unity project showcase.</p>
+    <nav>
+      <a href="#project1">Split Horizon</a>
+      <a href="#project2">Hero Born "Custom"</a>
+      <a href="#project3">Terrible Tweeters</a>
+    </nav>
   </header>
-
   <div class="container">
-
     <!-- Project 1 -->
     <section class="project-section" id="project1">
-      <div class="project-header">
-        <h2>Split Horizon</h2>
-      </div>
-      <div class="screenshot-container">
-        <img src="path/to/screenshot1.png" alt="Project 1 Screenshot">
-      </div>
+      <div class="project-header"><h2>Split Horizon</h2></div>
+      <div class="screenshot-container"><img src="path/to/screenshot1.png" alt="Split Horizon Screenshot"></div>
       <div class="project-content">
-        <p><strong>Description:</strong> Insert technical blurb here, e.g.: "Used Unity's ScriptableObject pattern to manage game configuration data, enabling dynamic level spawning based on JSON input."</p>
-        <div class="iframe-container">
-          <iframe src="https://ronno777.github.io/Split-Horizon/" title="Project 1 WebGL"></iframe>
-        </div>
+        <p><strong>Description:</strong> Used Unity's ScriptableObject pattern to manage dynamic level configurations via JSON-based data tables.</p>
+        <div class="iframe-container"><iframe src="https://ronno777.github.io/Split-Horizon/" title="Split Horizon WebGL"></iframe></div>
         <p><a href="https://github.com/Ronno777/Split-Horizon" target="_blank">View GitHub Repository</a></p>
       </div>
     </section>
-
     <!-- Project 2 -->
     <section class="project-section" id="project2">
-      <div class="project-header">
-        <h2>Hero Born "Custom"</h2>
-      </div>
-      <div class="screenshot-container">
-        <img src="path/to/screenshot2.png" alt="Project 2 Screenshot">
-      </div>
+      <div class="project-header"><h2>Hero Born "Custom"</h2></div>
+      <div class="screenshot-container"><img src="path/to/screenshot2.png" alt="Hero Born Custom Screenshot"></div>
       <div class="project-content">
-        <p><strong>Description:</strong> Insert technical blurb here, e.g.: "Implemented asynchronous asset loading with Addressables to reduce memory footprint and improve scene transition performance."</p>
-        <div class="iframe-container">
-          <iframe src="https://ronno777.github.io/Hero-Born-Custom/" title="Project 2 WebGL"></iframe>
-        </div>
+        <p><strong>Description:</strong> Implemented asynchronous asset loading with Addressables to reduce memory footprint and speed up scene transitions.</p>
+        <div class="iframe-container"><iframe src="https://ronno777.github.io/Hero-Born-Custom/" title="Hero Born Custom WebGL"></iframe></div>
         <p><a href="https://github.com/Ronno777/Hero-Born-Custom" target="_blank">View GitHub Repository</a></p>
       </div>
     </section>
-
     <!-- Project 3 -->
     <section class="project-section" id="project3">
-      <div class="project-header">
-        <h2>Terrible Tweeters</h2>
-      </div>
-      <div class="screenshot-container">
-        <img src="path/to/screenshot3.png" alt="Project 3 Screenshot">
-      </div>
+      <div class="project-header"><h2>Terrible Tweeters</h2></div>
+      <div class="screenshot-container"><img src="path/to/screenshot3.png" alt="Terrible Tweeters Screenshot"></div>
       <div class="project-content">
-        <p><strong>Description:</strong> Insert technical blurb here, e.g.: "Leveraged Unity's NavMesh system for real-time AI pathfinding, with custom cost modifiers to shape agent movement behavior dynamically."</p>
-        <div class="iframe-container">
-          <iframe src="https://ronno777.github.io/Terrible-Tweeters/" title="Project 3 WebGL"></iframe>
-        </div>
+        <p><strong>Description:</strong> Leveraged Unity's NavMesh system for real-time AI pathfinding, with custom cost modifiers for dynamic obstacle avoidance.</p>
+        <div class="iframe-container"><iframe src="https://ronno777.github.io/Terrible-Tweeters/" title="Terrible Tweeters WebGL"></iframe></div>
         <p><a href="https://github.com/Ronno777/Terrible-Tweeters" target="_blank">View GitHub Repository</a></p>
       </div>
     </section>
-
   </div>
-
-  <footer>
-    &copy; 2025 Ryan S. &nbsp; <a href="https://github.com/yourusername/Unity-Showcase" target="_blank">Source on GitHub</a>
-  </footer>
-
+  <footer>&copy; 2025 Ryan S. &nbsp; <a href="https://github.com/yourusername/Unity-Showcase" target="_blank">Source on GitHub</a></footer>
   <script>
-    // Intersection Observer for fade-in effect
+    // Fade-in on scroll
     document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('.project-section');
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); o.unobserve(e.target); }});
       }, { threshold: 0.15 });
-      sections.forEach(sec => observer.observe(sec));
+      sections.forEach(s => obs.observe(s));
     });
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      document.getElementById('progress').style.width = `${(scrollTop / (scrollHeight - clientHeight)) * 100}%`;
+    });
+    // Theme toggle
+    const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      btn.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+    });
+    // Load stored theme
+    const stored = localStorage.getItem('theme');
+    if (stored) {
+      document.documentElement.setAttribute('data-theme', stored);
+      document.getElementById('theme-toggle').textContent = stored === 'light' ? '🌙' : '☀️';
+    }
   </script>
-
 </body>
 </html>
